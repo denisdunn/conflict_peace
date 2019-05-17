@@ -5,4 +5,9 @@ I wanted to see if i could predict whether disputes between countries would resu
 
 It isn't surprising that fatalities on the initial dispute is the biggest factor that could lead to a military action, but it is interesting to see the other higher ranking features. In the feature chart below you will see that urban population, imports and energy consumption are the next highest ranking features. All three variables seem to be very vurnerable to world trade dynamics. 
 ![Plot](https://github.com/denisdunn/conflict_peace/blob/master/Screen%20Shot%202019-05-10%20at%2010.14.02%20AM.png)
-
+For my models I had a slight class imbalance and ran Smote on my dataset. the list of models i ran follow: logistical, decision tree, random forest, adaboost, xgboost,gradient boosted trees.
+After running many different models and tweaking the parameters of each. I found that the bagged decision tree was the best. It surprisinly beat out the random forest. There is a minor difference between the two. A random forest takes out one different variable for each tree to create the random forest. This cuts down on variance. I kept all the variables in my forest and was able to generate a slightly higher f1score and a better confusion matrix. here is the scoring before and after some parameter tweaking:
+![Plot](https://github.com/denisdunn/conflict_peace/blob/master/Screen%20Shot%202019-05-10%20at%209.26.25%20AM.png)
+![Plot](https://github.com/denisdunn/conflict_peace/blob/master/Screen%20Shot%202019-05-10%20at%209.28.57%20AM.png)
+Here is the confusion matrix to go along with the bagged decision tree. I thought that the best mistake would be to say if there was a false positive vs a false negative. Being ready for war instead of unprepared..
+![Plot](https://github.com/denisdunn/conflict_peace/blob/master/Screen%20Shot%202019-05-10%20at%2010.30.35%20AM.png)
